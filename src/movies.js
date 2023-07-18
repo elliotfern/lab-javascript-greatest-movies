@@ -164,9 +164,12 @@ function bestYearAvg(moviesArray) {
   // Se crea un objeto para almacenar la puntuación total y el recuento de películas de cada año
   const yearStats = {};
 
+  // ahora se hace una iteracion forEach para recorrer el array y calcular la puntuación
   moviesArray.forEach((movie) => {
     const year = movie.year;
     const score = movie.score;
+
+    // dentro del forEach ponemos un condicional para saber si el año ya existe y añadir la puntuación
 
     if (yearStats[year]) {
       yearStats[year].totalScore += score;
@@ -182,6 +185,8 @@ function bestYearAvg(moviesArray) {
   // Ahora se calcula el promedio para cada año y encuentra el mejor año
   let bestYear = null;
   let bestAverageScore = 0;
+
+  // Iteracion for in para recorrer el objeto. Dentro montamos un if para saber la puntuación media es mayor que la mejor puntuacion media.
 
   for (const year in yearStats) {
     const averageScore = yearStats[year].totalScore / yearStats[year].count;
